@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Getting Around Japan 🇯🇵🚆</title>
+<style>
+:root{--bg:#FFF8EC;--card:#FFFFFF;--ink:#2E2A28;--soft:#6B5E57;--pink:#FFC2D1;--hot:#E8456B;--teal:#1FA6A6;--sun:#FFD25A;--ok:#2E9B62;--no:#C65A5A;color-scheme:light;--hand:"Segoe Print","Bradley Hand","Chalkboard SE","Comic Sans MS",cursive;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:60px;scroll-behavior:smooth}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Trebuchet MS",Verdana,sans-serif;font-size:18px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--teal);display:flex;gap:6px;overflow-x:auto;padding:10px 14px}
+nav a{white-space:nowrap;color:var(--ink);text-decoration:none;font-weight:700;background:var(--card);border-radius:20px;padding:6px 14px;font-size:15px}
+main{max-width:1000px;margin:0 auto;padding:0 18px 60px}
+h1,h2{font-family:Georgia,serif;margin:0 0 8px;line-height:1.1}h1{font-size:clamp(38px,9vw,74px)}h2{font-size:clamp(28px,6vw,42px)}h3{margin:18px 0 6px}
+.kick{color:var(--hot);font-weight:700;letter-spacing:2px;font-size:14px;margin:0}
+.hero{background:linear-gradient(135deg,var(--pink),var(--sun));border-radius:0 0 32px 32px;padding:44px 24px;margin:0 -18px 20px;display:grid;gap:14px}
+section{padding:34px 0 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:14px 0}
+.card{perspective:700px;height:185px;cursor:pointer}
+.in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}.card.f .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;background:var(--card);border:3px solid var(--teal);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px;text-align:center}
+.back{transform:rotateY(180deg);background:var(--pink);border-color:var(--hot)}
+.em{font-size:54px;line-height:1}.face b{font-size:19px}.back i{font-size:15px}
+button{font:inherit;font-weight:700;border:0;border-radius:14px;padding:8px 16px;background:var(--hot);color:#fff;cursor:pointer;margin:2px}
+.say{background:var(--card);color:var(--ink);padding:4px 10px}
+.box{background:var(--card);border-left:10px solid var(--hot);border-radius:16px;padding:14px 20px;margin:12px 0}
+.box.t2{border-color:var(--teal)}.box.t3{border-color:var(--sun)}
+.q button,.opt button{display:block;width:100%;text-align:left;background:var(--bg);color:var(--ink);border:2px solid var(--pink)}
+.opt{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px}
+button.ok{background:var(--ok)!important;color:#fff!important}button.no{background:var(--no)!important;color:#fff!important}button.sel{background:var(--teal)!important;color:#fff!important}
+input,select{font:inherit;width:100%;padding:8px 12px;border-radius:12px;border:2px solid var(--pink);background:var(--card);color:var(--ink);margin:4px 0 8px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.tq{display:none;background:var(--bg);border:2px dashed var(--soft);border-radius:12px;padding:8px 12px;margin-top:8px;font-size:15px}.t .tq{display:block}
+.row{display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center;margin:8px 0}
+.bar{display:flex;gap:4px}.bar span{width:22px;height:16px;border-radius:5px;background:var(--pink)}.bar span.on{background:var(--hot)}
+.fr{display:grid;grid-template-columns:130px 130px 1fr;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--pink)}
+mark{background:var(--sun);color:#2E2A28;border-radius:6px;padding:0 5px;font-weight:700}
+.hide{display:none}canvas{background:var(--card);border:3px dashed var(--hot);border-radius:16px;width:100%;touch-action:none}
+footer{text-align:center;color:var(--soft);padding:20px}
+@media(max-width:560px){.fr{grid-template-columns:1fr 1fr}.fr span:last-child{grid-column:1/3}}
+body{background-image:radial-gradient(#F1D9C2 1.5px,transparent 1.5px);background-size:26px 26px}
+.kick{font-family:var(--hand);font-size:16px;letter-spacing:1px}
+.box{box-shadow:0 4px 0 rgba(120,80,50,.12);transform:rotate(-.3deg)}.box:nth-child(even){transform:rotate(.3deg)}
+.bub{display:flex;gap:12px;align-items:flex-start;margin:6px 0 14px}.bub>span{font-size:46px;line-height:1}
+.bub p{margin:0;background:#FFFFFF;border:3px solid var(--sun);border-radius:20px 20px 20px 4px;padding:10px 16px;font-family:var(--hand);font-weight:700}
+.pz{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:8;display:none;align-items:flex-end;gap:8px;max-width:280px}
+.pz.on{display:flex}.pz>span{font-size:44px}.pz p{margin:0;background:#FFFFFF;color:#2E2A28;border:3px solid var(--hot);border-radius:18px 18px 4px 18px;padding:8px 14px;font-family:var(--hand);font-weight:700;font-size:16px;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+</style></head><body>
+<nav><a href="#top">🇯🇵 Start</a><a href="#review">🧳 Review</a><a href="#vocab">🚌 Transport</a><a href="#japan">🗺️ Japan</a><a href="#freq">📊 How often</a><a href="#pattern">🔎 Pattern</a><a href="#habits">📝 Habits</a><a href="#play">🎮 Games</a><a href="#speak">🎤 Speak</a><a href="#final">🌸 Final</a></nav>
+<main id="top">
+<div class="hero"><p class="kick">YOU ARE IN JAPAN NOW!</p><h1>GETTING AROUND JAPAN! 🇯🇵🚆</h1><p style="font-size:22px;margin:0">How do you travel around a new city?</p><div class="bub"><span>🐕</span><p>Hi<span class="nm"></span>! I am Pretzel, your travel buddy. What is your name?</p></div><input placeholder="Type your name here 😊" style="max-width:320px" oninput="document.querySelectorAll('.nm').forEach(e=>e.textContent=this.value?', '+this.value:'')"><p style="margin:0">Tap cards to flip them · 🔊 to listen · 💡 for hints</p></div>
+
+<section id="review"><p class="kick">FIRST, A WARM-UP ☀️</p><h2>READY FOR YOUR NEXT ADVENTURE? 🧳</h2><div class="grid" id="g-rev"></div>
+<div class="box t2"><b>Say it!</b><br>What do you need to travel internationally?<br>Where do you show your boarding pass?<br>Where do you collect your luggage?<br>What do you do before boarding a plane?<div class="tq">Expected: passport, ticket, suitcase / at the gate / at baggage claim / fasten my seat belt, put my bag away. Let her answer in her own words.</div></div>
+<div class="box t3"><b>🛬 You have arrived in Japan! How can you travel around the country?</b></div></section>
+
+<section id="vocab"><p class="kick">STEP 1 · MEANS OF TRANSPORTATION</p><h2>How do people travel? 🚌</h2>
+<h3>🛣️ ON THE ROAD</h3><div class="grid" id="g-road"></div><h3>☁️ IN THE AIR</h3><div class="grid" id="g-air"></div><h3>🛤️ ON RAILS</h3><div class="grid" id="g-rail"></div><h3>🌊 ON THE WATER + ON FOOT</h3><div class="grid" id="g-water"></div>
+<div class="two"><div class="box"><b>by + transport</b><br><mark>by</mark> bus · <mark>by</mark> car · <mark>by</mark> plane<br><b>take + the/a</b><br><mark>take</mark> the bus · <mark>take</mark> a taxi · <mark>take</mark> the train</div><div class="box t2"><b>ride + bike / motorcycle</b><br>He <mark>rides</mark> a bike.<br><b>walk = go on foot</b><br>We <mark>walk</mark> to the station.</div></div></section>
+
+<section id="japan"><p class="kick">STEP 2 · YOU ARE A TOURIST IN JAPAN</p><h2>Choose your route! 🗺️</h2>
+<p><b>TOKYO → KYOTO → OSAKA</b> · Choose how you travel. All good answers are possible!</p><div id="route"></div>
+<div class="box t3">The <b>Shinkansen</b> 🚄 is a Japanese bullet train. Tourists can use it to travel fast between big cities.</div></section>
+
+<section id="freq"><p class="kick">STEP 3 · HOW OFTEN?</p><h2>Adverbs of frequency 📊</h2><p>The bars show an <i>idea</i>, not an exact number.</p><div class="box" id="scale"></div></section>
+
+<section id="pattern"><p class="kick">STEP 4 · DISCOVER THE PATTERN 🔎</p><h2>Look at the sentences</h2>
+<div class="box">I <mark>usually</mark> take the bus.<br>She <mark>always</mark> rides her bike.<br>They <mark>sometimes</mark> travel by plane.<br>We <mark>never</mark> take a helicopter.<br>I am <mark>always</mark> early. · She is <mark>usually</mark> on time. · They are <mark>never</mark> late.</div>
+<div id="disc"></div><button onclick="document.getElementById('rules').classList.remove('hide')">🔓 Show the rules</button>
+<div id="rules" class="hide two"><div class="box"><b>Rule 1</b><br>Subject + <mark>adverb</mark> + main verb<br>I <mark>usually</mark> take the bus.</div><div class="box t2"><b>Rule 2 · with "to be"</b><br>Subject + am/is/are + <mark>adverb</mark><br>She is <mark>usually</mark> on time.</div></div>
+<h3>Which sentence is correct? ✅</h3><div id="quiz1"></div></section>
+
+<section id="habits"><p class="kick">NOW IT IS ABOUT YOU 💛</p><h2>MY TRANSPORTATION HABITS 📝</h2>
+<p>Questions: How do you usually go to school? How often do you ride a bike? Do you often travel by car?</p><div class="box" id="hab"></div>
+<button onclick="mkh()">✨ Make my sentences</button><div class="box t2" id="habout">Choose, then tap the button. Pick 4 and say them aloud!</div></section>
+
+<section id="play"><p class="kick">STEP 6 · GAMES</p><h2>Let's play! 🎮</h2>
+<h3>1 · GUESS THE TRANSPORTATION</h3><div id="rid"></div>
+<h3>2 · HOW OFTEN DO YOU...?</h3><div class="box"><div id="hoq" style="font-size:24px;font-weight:700">Tap the dice 🎲</div><button onclick="dice()">🎲 New card</button><div class="tq">Follow-ups: Why? Now ask me the same question!</div></div>
+<h3>3 · TRUE ABOUT ME OR FALSE ABOUT ME?</h3><div id="tf"></div></section>
+
+<section id="speak"><p class="kick">STEP 7 · YOU ARE THERE!</p><h2>Speaking missions 🎤</h2><div id="mis"></div></section>
+
+<section id="write"><p class="kick">STEP 8 · MINI WRITING</p><h2>My transportation routine ✍️</h2><div class="box" id="wr"></div><p>Choose 2 sentences and read them aloud! 📢</p></section>
+
+<section id="final"><p class="kick">FINAL MISSION</p><h2>MY DREAM DAY IN JAPAN 🇯🇵</h2>
+<div class="two"><div class="box" id="stops"></div><div><button onclick="mkf()">✨ Make my plan</button><div class="box t3" id="fout"><b>Your plan appears here.</b></div><p><b>Draw your route 🎨</b></p><canvas id="cv" width="600" height="300"></canvas><p><button style="background:#E8456B" onclick="col='#E8456B'">pink</button><button style="background:#1FA6A6" onclick="col='#1FA6A6'">turquoise</button><button style="background:#C99A00" onclick="col='#C99A00'">yellow</button><button style="background:#2E9B62" onclick="col='#2E9B62'">green</button><button class="say" onclick="cx.clearRect(0,0,600,300)">clear</button></p></div></div></section>
+
+<section id="wrap"><p class="kick">YOU DID IT! 🎉</p><h2>Review game ⭐</h2><div id="quiz2"></div>
+<div class="box t2"><b>I can...</b><br><label><input type="checkbox" style="width:auto"> name 5 kinds of transportation</label><br><label><input type="checkbox" style="width:auto"> say how often I use them</label><br><label><input type="checkbox" style="width:auto"> plan a day in Japan</label></div></section>
+</main>
+<footer><label><input type="checkbox" style="width:auto" onchange="document.body.classList.toggle('t',this.checked)"> 👩‍🏫 Teacher mode</label></footer>
+<div class="pz" id="pz"><span>🐕</span><p id="pzt"></p></div>
+<script>
+const $=i=>document.getElementById(i);
+function cards(id,l){$(id).innerHTML=l.map(([e,w,p,s])=>`<div class="card" onclick="this.classList.toggle('f')"><div class="in"><div class="face"><span class="em">${e}</span><b>${w}</b></div><div class="face back"><b>${p}</b><i>${s}</i><button class="say" data-s="${s}" onclick="say(event,this.dataset.s)">🔊</button></div></div></div>`).join("")}
+function say(e,t){e.stopPropagation();try{const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(x){}}
+cards("g-rev",[["🛂","passport","passaporte","Here is my passport."],["🧳","suitcase","mala","My suitcase is pink."],["🎫","boarding pass","cartão de embarque","This is my boarding pass."],["🚪","boarding gate","portão","Where is my gate?"],["💺","seat belt","cinto","Fasten your seat belt."],["🧑‍✈️","flight attendant","comissário(a)","The flight attendant is nice."],["✈️","airplane","avião","I travel by airplane."],["🏢","airport","aeroporto","We are at the airport."],["🛄","luggage","bagagem","Where is my luggage?"]]);
+cards("g-road",[["🚌","bus","ônibus","I travel by bus."],["🚕","taxi","táxi","She goes by taxi."],["🚗","car","carro","We go by car."],["🏍️","motorcycle","moto","He rides a motorcycle."],["🚲","bike","bicicleta","He rides a bike."],["🛴","scooter","patinete","I ride a scooter."]]);
+cards("g-air",[["✈️","plane","avião","We travel by plane."],["🚁","helicopter","helicóptero","The helicopter is fast."]]);
+cards("g-rail",[["🚆","train","trem","They take the train."],["🚄","bullet train","trem-bala","The Shinkansen is a bullet train."],["🚇","subway","metrô","I take the subway."],["🚊","tram","bonde","The tram is slow."]]);
+cards("g-water",[["⛵","boat","barco","The boat is small."],["⛴️","ferry","balsa","We take a ferry."],["🚶","walk","caminhar","We walk to the station."]]);
+const R=[["🚇 From the hotel to a museum in Tokyo",["🚇 subway","🚕 taxi","🚶 walk"]],["🚄 From Tokyo to Kyoto",["🚄 Shinkansen","🚌 bus","✈️ plane"]],["⛩️ From Kyoto to a temple nearby",["🚌 bus","🚲 bike","🚕 taxi"]],["🏯 From Kyoto to Osaka",["🚆 train","🚗 car","🚌 bus"]]];
+$("route").innerHTML=R.map(([t,o])=>`<div class="box t2"><b>${t}</b><div class="opt">${o.map(x=>`<button onclick="pk(this)">${x}</button>`).join("")}</div><p class="hide">💬 Why do you choose this? Do you usually use it at home? How often?</p></div>`).join("");
+function pk(b){b.parentNode.querySelectorAll("button").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");b.parentNode.nextElementSibling.classList.remove("hide");pz("Nice choice! Now tell me why 😊")}
+const F=[["always",5,"I always wear my seat belt."],["usually",4,"I usually go to school by car."],["often",3,"I often ride my bike."],["sometimes",2,"I sometimes take a taxi."],["rarely",1,"I rarely travel by helicopter."],["never",0,"I never drive a car. (an example!)"]];
+$("scale").innerHTML=F.map(([w,n,s])=>`<div class="fr"><b style="color:var(--hot)">${w}</b><span class="bar">${[1,2,3,4,5].map(i=>`<span class="${i<=n?"on":""}"></span>`).join("")}</span><span>${s} <button class="say" data-s="${s}" onclick="say(event,this.dataset.s)">🔊</button></span></div>`).join("");
+const DQ=[["Which words tell us how often something happens?","usually, always, sometimes, never"],["Where is the adverb in the first four sentences?","Before the main verb: usually take, always rides..."],["What happens with the verb to be (am/is/are)?","The adverb comes after: am always, is usually, are never."]];
+$("disc").innerHTML=DQ.map(([q,a])=>`<div class="box t2"><b>${q}</b> <button class="say" onclick="this.nextElementSibling.classList.toggle('hide')">👀 Answer</button><span class="hide"> ${a}</span></div>`).join("");
+function quiz(id,Q){$(id).innerHTML=Q.map(([t,o,a])=>`<div class="box q"><b>${t}</b>${o.map((x,i)=>`<button data-a="${i==a}" onclick="ans(this,this.dataset.a=='true')">${x}</button>`).join("")}</div>`).join("")}
+quiz("quiz1",[["Choose:",["I take usually the bus.","I usually take the bus.","Usually I the take bus."],1],["Choose:",["She is always happy.","She always is happy.","She is happy always."],0],["Choose:",["They never are late.","They are never late.","They are late never."],1]]);
+const H=[["🚌 bus","I {a} take the bus."],["🚗 car","I {a} travel by car."],["🚲 bike","I {a} ride a bike."],["🚕 taxi","I {a} take a taxi."],["✈️ plane","I {a} travel by plane."]];
+$("hab").innerHTML=H.map(([n],i)=>`<div class="row"><b>${n}</b><select id="h${i}"><option value="">— how often? —</option>${F.map(f=>`<option>${f[0]}</option>`).join("")}</select></div>`).join("");
+function mkh(){const o=H.map(([n,s],i)=>{const a=$("h"+i).value;return a?s.replace("{a}",a):""}).filter(Boolean);$("habout").innerHTML=o.length?o.join("<br>"):"Choose at least one answer first!"}
+const RD=[[["It has two wheels.","You can ride it.","You pedal with your legs."],["🚌 bus","🚲 bike","🚗 car"],1],[["It travels on rails.","It carries many passengers.","It stops at stations."],["🚆 train","🚕 taxi","⛴️ ferry"],0],[["It flies in the sky.","It is big.","It goes to other countries."],["🚁 helicopter","✈️ plane","🚲 bike"],1]];
+const cl=RD.map(r=>1);
+$("rid").innerHTML=RD.map((r,i)=>`<div class="box t3"><b>Riddle ${i+1}</b><div id="c${i}"><p>💡 ${r[0][0]}</p></div><button class="say" onclick="nc(${i})">Next clue</button><div class="opt q">${r[1].map((x,j)=>`<button onclick="ans(this,${j==r[2]})">${x}</button>`).join("")}</div><div class="tq">Ask: What is it? Can you make your own riddle?</div></div>`).join("");
+function nc(i){if(cl[i]<3)$("c"+i).innerHTML+=`<p>💡 ${RD[i][0][cl[i]++]}</p>`}
+const AC=["ride a bike","take a taxi","travel by plane","go to school by bus","walk to a nearby place","travel by car","take the train"];
+function dice(){const a=AC[Math.floor(Math.random()*AC.length)];$("hoq").innerHTML=`How often do you ${a}?<br><small style="font-weight:400">I ____ ${a}. (always, usually, often, sometimes, rarely, never)</small>`}
+const TF=["I always travel by helicopter.","I sometimes ride a bike.","I usually go to school by bus.","I never travel by plane."];
+$("tf").innerHTML=TF.map(s=>`<div class="box"><b>${s}</b><br><button onclick="this.parentNode.lastElementChild.classList.add('hide');this.className='ok'">✅ True</button><button onclick="this.className='no';this.parentNode.lastElementChild.classList.remove('hide')">❌ False</button><div class="hide">Make it true about you:<input placeholder="Write your sentence"></div></div>`).join("");
+const M=[["A · At the train station 🚉","You are at a train station in Tokyo. Where do you want to go? How do you want to travel?","Round 2: the train is late!",["Start with: I want to go to...","Choose: by train / by taxi"],"Teacher = station helper. Where do you want to go? How do you want to travel? Do you usually travel by train? How often do you take a taxi?"],["B · Plan a day in Japan 🗾","You plan a tourist day. Choose places and transportation.","Round 2: it is raining!",["Start with: First, I want to visit...","Choose: Then, I take the... / I walk to..."],"Teacher asks: What do you want to do there? Why? How do you go? Is it far?"],["C · Home vs. Japan 🏠➡️🇯🇵","Compare how you travel at home and how you want to travel in Japan.","Round 2: say 3 things you never do.",["Start with: At home, I usually...","Then: In Japan, I want to..."],"Prompts: At home, I usually... In Japan, I want to... I sometimes... I never... Which is your favorite and why?"]];
+$("mis").innerHTML=M.map(([t,s,r,h,tq],i)=>`<div class="box"><b>${t}</b><br>${s}<br><small>${r}</small><br><button onclick="hn(this,${i})">💡 Hint</button><div></div><div class="tq">${tq}</div></div>`).join("");
+const hs=[0,0,0];function hn(b,i){if(hs[i]<2)b.nextElementSibling.innerHTML+="<p>💡 "+M[i][3][hs[i]++]+"</p>"}
+$("wr").innerHTML=["I usually","I sometimes","I often","I rarely","I never","My favorite transportation is"].map(s=>`<div class="row" style="grid-template-columns:200px 1fr"><b>${s}</b><input placeholder="..."></div>`).join("");
+$("stops").innerHTML=[1,2,3].map(i=>`<b>Stop ${i}</b>Destination<input id="s${i}d" placeholder="Tokyo, Kyoto, Osaka...">Transportation<select id="s${i}t"><option>train</option><option>subway</option><option>bus</option><option>taxi</option><option>bike</option><option>ferry</option><option>bullet train</option></select>Activity<input id="s${i}a" placeholder="eat ramen, see a temple...">`).join("<hr>");
+function g(i){return $(i).value||"___"}
+function mkf(){const w=["First","Then","Finally"];$("fout").innerHTML=[1,2,3].map(i=>`${w[i-1]}, I want to visit ${g("s"+i+"d")}. I travel by ${g("s"+i+"t")}. There I want to ${g("s"+i+"a")}.`).join("<br>")+"<br><small>Add: I usually... / I sometimes...</small>"}
+quiz("quiz2",[["How do you say it? You go by bus every day.",["I never take the bus.","I always take the bus.","I rarely take the bus."],1],["Which is correct?",["He rides often a bike.","He often rides a bike.","He is often rides a bike."],1],["The fast Japanese train is the...",["Shinkansen","ferry","scooter"],0],["Which is correct?",["We are never late.","We never are late.","We late never are."],0]]);
+const cv=$("cv"),cx=cv.getContext("2d");let col="#E8456B",dr=false;cx.lineWidth=5;cx.lineCap="round";
+function pt(e){const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*600/r.width,(e.clientY-r.top)*300/r.height]}
+cv.onpointerdown=e=>{dr=true;const[x,y]=pt(e);cx.strokeStyle=col;cx.beginPath();cx.moveTo(x,y)};
+cv.onpointermove=e=>{if(dr){const[x,y]=pt(e);cx.lineTo(x,y);cx.stroke()}};
+cv.onpointerup=cv.onpointerleave=()=>dr=false;
+
+let pzT;const pick=a=>a[Math.floor(Math.random()*a.length)];
+function pz(m){$("pzt").textContent=m;$("pz").classList.add("on");clearTimeout(pzT);pzT=setTimeout(()=>$("pz").classList.remove("on"),3500)}
+function ans(b,ok){b.className=ok?"ok":"no";pz(ok?pick(["Yes! Great job! 🎉","Perfect! You got it! ⭐","Awesome! Woof! 🐾"]):pick(["Almost! Try again 💪","Hmm, look again 👀","No worries, try another one!"]))}
+const B={review:"Let's remember our last trip first. What do you remember? Flip the cards!",vocab:"Japan has so many ways to travel! Which one is your favorite?",japan:"Imagine: your suitcase is ready and you are in Tokyo. Where do you want to go?",freq:"How often do you do things? Every day? Never? Let's see!",pattern:"Be a detective 🔎 Read the sentences. What do you notice?",habits:"Now it is about YOU. There are no wrong answers, only your real life!",play:"Time to play! Mistakes are OK. They help us learn 💛",speak:"Close your eyes... you are really there! I am here if you need a hint.",write:"Just six short sentences. You can do it!",final:"This is YOUR day in Japan. Make it special! 🌸",wrap:"Great job today<span class='nm'></span>! I am so proud of you 🎉"};
+for(const k in B){const h=document.querySelector("#"+k+" h2");if(h)h.insertAdjacentHTML("afterend",`<div class="bub"><span>🐕</span><p>${B[k]}</p></div>`)}
+</script></body></html>
